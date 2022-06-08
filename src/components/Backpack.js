@@ -4,8 +4,7 @@ import db from './firebase';
 
 const Backpack = () => {
 
-    const [items, setItems] = useState([]);
-
+    const [items, setItems] = useState([{name: "LOADING....." , id: "loader" }]);
 
     useEffect(() => {
             onSnapshot(collection(db, "backpack"), (snapshot) => {
@@ -14,14 +13,12 @@ const Backpack = () => {
         }, []
     )
 
-
-
-
     return (
         <form>
             <input type="text"/>
             <button>Add me! me!</button>
-            <div>{items.map(element => <li key ={element.id}>{element.Name} {element.Description}</li>)}</div>
+            <br/>
+            <div>{items.map(element => <li key={element.id}><br/>{element.name} <p>{element.description}</p></li>)}</div>
         </form>
     )
 }
