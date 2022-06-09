@@ -1,17 +1,29 @@
 import React from "react";
-import {Link} from "react-router-dom";
 
 const HomePage = () => {
     return (
         <div>
-            <h1>HOME PAGE</h1>
             <div>
-                <Link to='/'>Home</Link>
-                <Link to='/Instructions'>Instructions</Link>
-                <Link to='/backpack'>Backpack</Link>
-                <Link to='/contact'>Contact</Link>
+                <div>
+                    <div>logo placeholder TODO wstawić logo</div>
+                </div>
+                <br/>
+                <form>
+                    <label htmlFor="login">
+                        e-mail: <br/><input type="email" name="login"/>
+                    </label>
+                    <br/>
+                    <label htmlFor="password">
+                        password: <br/><input type="password" name="password"/>
+                    </label>
+                    <br/>   <br/>
+                    <button type="button"> Sign In!</button>
+                </form>
             </div>
+            <br/>
+            <span className="creator">Created by PiotrekSy</span>
         </div>
+
     )
 }
 
