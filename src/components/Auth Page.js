@@ -21,7 +21,7 @@ const AuthPage = () => {
                     <label htmlFor="confirmPassword">
                         confirmPassword: <br/><input type="password" name="confirmPassword"/>
                     </label>
-                    <br/>   <br/>
+                    <br/> <br/>
                     <button type="button"> Sign In!</button>
                 </form>
             </div>
