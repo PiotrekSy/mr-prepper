@@ -1,11 +1,12 @@
 import React from "react";
+import "firebase/auth"
 
-const HomePage = () => {
+const AuthPage = () => {
     return (
         <div>
             <div>
                 <div>
-                    <div>logo placeholder TODO wstawić logo</div>
+                    <div>LOGO</div>
                 </div>
                 <br/>
                 <form>
@@ -16,15 +17,18 @@ const HomePage = () => {
                     <label htmlFor="password">
                         password: <br/><input type="password" name="password"/>
                     </label>
+                    <br/>
+                    <label htmlFor="confirmPassword">
+                        confirmPassword: <br/><input type="password" name="confirmPassword"/>
+                    </label>
                     <br/>   <br/>
                     <button type="button"> Sign In!</button>
                 </form>
             </div>
             <br/>
-            <span className="creator">Created by PiotrekSy</span>
         </div>
 
     )
 }
 
-export default HomePage
+export default AuthPage

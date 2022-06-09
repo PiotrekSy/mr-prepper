@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react"
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Backpack from "./Backpack";
 import NavBar from "./Navbar"
-import HomePage from "./HomePage";
+import AuthPage from "./Auth Page";
 import Instructions from "./Instructions";
 import Contact from "./Contact";
 import LoadingScreen from "./LoadingScreen"
@@ -29,11 +29,9 @@ const MrPrepper = () => {
         return (
             <Router>
                 <div>
-                    <h1>Mr.Prepper</h1>
-                    <NavBar/>
                     <div>
                         <Routes>
-                            <Route path="/" element={<HomePage/>}/>
+                            <Route path="/" element={<AuthPage/>}/>
                             <Route path="instructions" element={<Instructions/>}/>
                             <Route path="backpack" element={<Backpack/>}/>
                             <Route path="contact" element={<Contact/>}/>
