@@ -1,17 +1,23 @@
-import {initializeApp} from "firebase/app";
+import {initializeApp} from "firebase/app"
 import {getFirestore} from "firebase/firestore"
+import {getAuth} from "firebase/auth"
 import "firebase/auth"
 
-const firebaseConfig = {
-    apiKey: "AIzaSyB_JoNm-LQF10etoMwTOF9zmAMeJJBg0Ns",
-    authDomain: "mr-prepper-f88cc.firebaseapp.com",
-    databaseURL: "https://mr-prepper-f88cc-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "mr-prepper-f88cc",
-    storageBucket: "mr-prepper-f88cc.appspot.com",
-    messagingSenderId: "317577419487",
-    appId: "1:317577419487:web:7101727d13eac902f7e76a",
-    measurementId: "G-PJMKJD54RQ"
+export const firebaseConfig = {
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+    databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+    appId: process.env.REACT_APP_FIREBASE_APP_ID,
+    measurementId: process.env.REACT_APP_FIREBASE_MEASUREMENT_ID,
+
 };
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig)
+
+export const auth = getAuth(app)
 export default getFirestore()
+
+

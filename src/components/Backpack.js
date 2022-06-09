@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {onSnapshot, collection} from "@firebase/firestore"
 import db from './firebase';
+import NavBar from "./Navbar";
 
 const Backpack = () => {
 
@@ -16,16 +17,19 @@ const Backpack = () => {
 
     // zwracam tablicę złożoną z elementów pobranych z firebase jupi :)
     return (
-        <div>
+        <>
+            <NavBar/>
             <div>
-                {items.map(element =>
-                    <li key={element.id}>
-                        <br/>{element.name}
-                        <p>{element.description}</p>
-                    </li>)
-                }
+                <div>
+                    {items.map(element =>
+                        <li key={element.id}>
+                            <br/>{element.name}
+                            <p>{element.description}</p>
+                        </li>)
+                    }
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 
