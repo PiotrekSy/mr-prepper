@@ -1,16 +1,21 @@
 import React from "react";
 
 const LoadingScreen = ({counter}) => {
+
     return (
-        <div className="">
-            <h1>Mr.Prepper</h1>
-            <div>LOGO</div>
-            <div className="">
-                <div className="">
-                    <div className="">{counter}</div>
-                </div>
+        <div className="wholeAuth">
+            <div className="logoSpacing">
+                <h1 className="title">Mr. Prepper</h1>
+                <div className="logo"/>
             </div>
-            <span className="creator">Created by PiotrekSy</span>
+            <div className="formSpacingLoading">
+                <div className="loadingWrapper" style={{width: (0.8 * counter + "%")}}>
+                    <div className="loadingBarElement">
+                        <div className="loadingBar">{counter}%</div>
+                    </div>
+                </div>
+                <span className="creator">Created by PiotrekSy</span>
+            </div>
         </div>
     )
 }

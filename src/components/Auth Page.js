@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword} from "firebase/auth"
+import {createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut} from "firebase/auth"
 import {Button} from "react-bootstrap";
 import {auth} from "./firebase"
 import "firebase/auth"
@@ -41,74 +41,80 @@ const AuthPage = () => {
         }
     }
 
-    return (
-        <div>
-            <div>
-                <div>LOGO</div>
+    const logoutFromReg = async (e) => {
+        e.preventDefault()
+        await signOut(auth)
+        setRegistered("")
+    }
+
+    return (<div className="wholeApp">
+        <div className="wholeAuth">
+            <div className="logoSpacing">
+                <h1 className="title">Mr. Prepper</h1>
+                <div className="logo"/>
+            </div>
+            <div className="formSpacingAuth">
                 {/*Ekran startowy, jeżeli żaden form nie jest aktywny*/}
-                {registered === "" &&
-                    <>
-                        <p>{user.name}</p>
-                        <span>Nie masz konta? </span>
-                        <button onClick={e => {
-                            e.preventDefault()
-                            setRegistered("notRegistered")
-                        }}>Zarejestruj się!
-                        </button>
-                        <br/>
-                        <span>Masz już konto? </span>
-                        <button onClick={e => {
-                            e.preventDefault()
-                            setRegistered("registered")
-                        }}>Zaloguj!
-                        </button>
-                    </>
-                }
+                {registered === "" && <div className="mainMenu">
+                    <span className="description">Dont have an account?</span>
+                    <button className="menuButton" onClick={e => {
+                        e.preventDefault()
+                        setRegistered("notRegistered")
+                    }}>Register!
+                    </button>
+                    <span className="description">Already have an account? </span>
+                    <button className="menuButton" onClick={e => {
+                        e.preventDefault()
+                        setRegistered("registered")
+                    }}>LogIn!
+                    </button>
+                </div>}
 
                 {/*Rejestracja*/}
-                {(registered === "notRegistered") &&
-                    <form onSubmit={register}>
-                        <div>
-                            <h1>Register form</h1>
-                            {error && <p>{error}</p>}
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="email">Email address</label>
-                            <input type="email"
-                                   id="email"
-                                   onChange={e => setEmail(e.target.value)}
-                                   aria-describedby="emailHelp" placeholder="Enter email"/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="password">Password</label>
-                            <input type="password"
-                                   id="password"
-                                   onChange={e => setPassword(e.target.value)}
-                                   placeholder="Password"/>
-                        </div>
-                        <div className="form-group">
-                            <label htmlFor="passwordConfirm">Password</label>
-                            <input type="password"
-                                   id="passwordConfirm"
-                                   onChange={e => setPasswordConfirm(e.target.value)}
-                                   placeholder="PasswordConfirm"/>
-                        </div>
-                        <Button type="submit">Sign Up!</Button>
-                        <br/>
+                {(registered === "notRegistered") && <form onSubmit={register} className="registrationForm">
+                    <div>
+                        <h1>Registration form</h1>
+                        {error && <p>{error}</p>}
+                    </div>
+                    <div className="form-group">
+                        <label className="description" htmlFor="email"></label>
+                        <input className="inputVisuals" type="email"
+                               id="email"
+                               onChange={e => setEmail(e.target.value)}
+                               aria-describedby="emailHelp" placeholder="Enter email"/>
+                    </div>
+                    <div className="form-group">
+                        <label className="description" htmlFor="password"></label>
+                        <input className="inputVisuals" type="password"
+                               id="password"
+                               onChange={e => setPassword(e.target.value)}
+                               placeholder="Password"/>
+                    </div>
+                    <div className="form-group">
+                        <label className="description" htmlFor="passwordConfirm"></label>
+                        <input className="inputVisuals" type="password"
+                               id="passwordConfirm"
+                               onChange={e => setPasswordConfirm(e.target.value)}
+                               placeholder="Confirm Password"/>
+                    </div>
+                    <button type="submit"
+                            className="menuButton">SignUp!
+                    </button>
+                    <button type="button"
+                            className="menuButton"
+                            onClick={logoutFromReg}> Back
+                    </button>
 
-                        {
-                            error === "Zarejestrowano!" &&
-                            <>
-                                <span>Twoje konto zostało założone i jesteś zalogowany jako {user.email}!</span>
-                                <div className="linkButton">
-                                    <Link
-                                        to="landingPage">Przejdź do
-                                        Aplikacji!
-                                    </Link>
-                                </div>
-                            </>
-                        }
-                    </form>
+                    {error === "Zarejestrowano!" && <>
+                        <span
+                            className="description">Twoje konto zostało założone i jesteś zalogowany jako {user.email}!</span>
+                        <div className="linkButton">
+                            <Link
+                                to="landingPage">Przejdź do Aplikacji!
+                            </Link>
+                        </div>
+                    </>}
+                </form>
                 }
 
                 {/*Login*/}
@@ -119,34 +125,34 @@ const AuthPage = () => {
                             {error && <p>{error}</p>}
                         </div>
                         <div className="form-group">
-                            <label htmlFor="email">Email address</label>
-                            <input type="email"
+                            <label className="description" htmlFor="email"/>
+                            <input className="inputVisuals" type="email"
                                    id="email"
                                    onChange={e => setEmail(e.target.value)}
-                                   aria-describedby="emailHelp" placeholder="Enter email"/>
+                                   aria-describedby="emailHelp" placeholder="Enter email"
+                            />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="password">Password</label>
-                            <input type="password"
+                            <label className="description" htmlFor="password"/>
+                            <input className="inputVisuals" type="password"
                                    id="password"
                                    onChange={e => setPassword(e.target.value)}
-                                   placeholder="Password"/>
+                                   placeholder="Password"
+                            />
                         </div>
-                        <Button type="submit">Log in!</Button>
-                        {
-                            error === "Zalogowano!" &&
-                            <>
-                                <span>Jesteś zalogowany jako {user.email}!</span>
-                                <Link
-                                    to="landingPage">Przejdź do Aplikacji!
-                                </Link>
-                            </>
-                        }
-                    </form>
-                }
+                        <Button type="submit" className="menuButton">LogIn!</Button>
+                        <Button type="button" onClick={logoutFromReg} className="menuButton"> Back </Button>
+
+                        {error === "Zalogowano!" && <>
+                            <span className="description">Jesteś zalogowany jako {user.email}!</span>
+                            <Link
+                                to="landingPage">Przejdź do Aplikacji!
+                            </Link>
+                        </>}
+                    </form>}
             </div>
         </div>
-    )
+    </div>)
 }
 
 export default AuthPage

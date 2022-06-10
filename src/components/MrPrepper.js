@@ -16,7 +16,7 @@ const MrPrepper = () => {
         if (counter <= 100) {
             setTimeout(() => {
                 setCounter(prevState => prevState + 1);
-            }, 10);
+            }, 25);
             if (counter === 100) {
                 return setIsLoading(false);
             }
@@ -26,7 +26,7 @@ const MrPrepper = () => {
     if (!isLoading) {
         return (
             <Router>
-                <div>
+                <div className="wholeApp">
                     <div>
                         <Routes>
                             <Route path="/" element={<AuthPage/>}/>
@@ -39,8 +39,9 @@ const MrPrepper = () => {
             </Router>
         )
     } else {
-        return <LoadingScreen counter={counter}/>
+        return <LoadingScreen counter={counter} />
     }
+
 }
 
 export default MrPrepper
