@@ -1,6 +1,6 @@
 import React from "react";
 import MrPrepper from "./components/MrPrepper"
-import './App.css';
+import './App.scss';
 
 // import "bootstrap/dist/css/bootstrap.min.css"
 

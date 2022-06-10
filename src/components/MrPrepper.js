@@ -3,10 +3,9 @@ import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Backpack from "./Backpack";
 import AuthPage from "./Auth Page";
 import Instructions from "./Instructions";
-import Contact from "./Contact";
+import LandingPage from "./landingPage";
 import LoadingScreen from "./LoadingScreen"
-import Login from "./Login"
-import Dashboard from "./Dashboard"
+
 
 const MrPrepper = () => {
 
@@ -24,19 +23,16 @@ const MrPrepper = () => {
         }
     }, [counter]);
 
-
     if (!isLoading) {
         return (
             <Router>
                 <div>
                     <div>
                         <Routes>
-                            <Route exact path="/dashboard" element={<Dashboard/>}/>
                             <Route path="/" element={<AuthPage/>}/>
                             <Route path="instructions" element={<Instructions/>}/>
                             <Route path="backpack" element={<Backpack/>}/>
-                            <Route path="contact" element={<Contact/>}/>
-                            <Route path="login" element={<Login/>}/>
+                            <Route path="landingPage" element={<LandingPage/>}/>
                         </Routes>
                     </div>
                 </div>
