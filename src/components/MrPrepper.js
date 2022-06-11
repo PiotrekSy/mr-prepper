@@ -16,7 +16,7 @@ const MrPrepper = () => {
         if (counter <= 100) {
             setTimeout(() => {
                 setCounter(prevState => prevState + 1);
-            }, 25);
+            }, 15);
             if (counter === 100) {
                 return setIsLoading(false);
             }

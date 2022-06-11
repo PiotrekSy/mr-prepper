@@ -9,7 +9,7 @@ const LoadingScreen = ({counter}) => {
                 <div className="logo"/>
             </div>
             <div className="formSpacingLoading">
-                <div className="loadingWrapper" style={{width: (0.8 * counter + "%")}}>
+                <div className="loadingWrapper" style={{width: (0.8 * counter + "%"), maxWidth: "800px"}}>
                     <div className="loadingBarElement">
                         <div className="loadingBar">{counter}%</div>
                     </div>

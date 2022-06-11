@@ -13,7 +13,7 @@ const LandingPage = () => {
 
     return (
         <>
-            <h2 >Mr. Prepper</h2>
+            <h2 >Mr.Prepper</h2>
             <ul>
                 <li className="linkButton">
                     <Link to='/Instructions'>Instructions</Link>
