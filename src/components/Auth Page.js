@@ -116,12 +116,13 @@ const AuthPage = () => {
                                     onClick={logoutFromReg}> Back
                             </button>
                         </div>
+
                         {error === "Zarejestrowano!" && <>
                         <span
-                            className="description">Zarejestrowałeś się!<br/> Witaj, {user.email}!</span>
+                            className="description">Witaj, {user.email}!</span>
                             <div className = "menuButton">
                                 <Link
-                                    to="landingPage">Przejdź do Aplikacji!
+                                    to="landingPage">Przejdź do Apki!
                                 </Link>
                             </div>
                         </>}
@@ -134,7 +135,7 @@ const AuthPage = () => {
                     <form onSubmit={login} className="registrationForm">
                         <div>
                             <h1 className="pageTitle">Log in!</h1>
-                            {error && <p>{error}</p>}
+
                         </div>
                         <div className="form-group">
                             <label className="description" htmlFor="email"/>
@@ -159,6 +160,7 @@ const AuthPage = () => {
                             <button type="button" onClick={logoutFromReg} className="menuButton"> Back</button>
                         </div>
                         {error === "Zalogowano!" && <>
+                            {error && <p>{error}</p>}
                             <span className="description">Witaj, {user.email}!</span>
                             <Link
                                 to="landingPage"><button className="menuButton">Przejdź do Apki!</button>

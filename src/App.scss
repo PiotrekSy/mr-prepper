@@ -175,7 +175,7 @@
       align-self: center;
       font-size: 4vh;
       max-font-size: 8vh;
-      border: 6px solid #2e2e31 ;
+      border: 6px solid #2e2e31;
     }
 
 
@@ -209,9 +209,77 @@
       border-bottom: #2e2e32 2px solid;
       max-width: 500px;
     }
+  }
+}
+
+.landingPage {
+
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  .title {
+    font-size: clamp(45px, 15vw, 150px);
+    max-height: 200px;
+    font-family: 'Freckle Face', cursive;
+    color: #87a351;
+    text-shadow: #1f1f1f 5px 5px;
+  }
+
+  .menuOptions {
+    display: flex;
+    flex-direction: column;
+
+    .landingButton {
+      max-height: 60px;
+      max-width: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 8vh;
+      cursor: pointer;
+      font-family: 'Freckle Face', cursive;
+      box-shadow: inset 0 -15px #c78a2f;
+      color: #2e2e31;
+      position: relative;
+      background-color: #f9ad3b;
+      width: 60vw;
+      border-radius: 50px;
+      margin: 0;
+      align-self: center;
+      font-size: 4vh;
+      max-font-size: 8vh;
+      border: 6px solid #2e2e31;
+    }
+
 
   }
 
+
+}
+
+.navBar {
+
+
+  .navButton {
+    background-color: DodgerBlue; /* Blue background */
+    border: none; /* Remove borders */
+    color: white; /* White text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+    /* Darker background on mouse-over */
+
+    .navButton:hover {
+      background-color: RoyalBlue;
+    }
+
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+  }
 }
 
 

@@ -4,7 +4,6 @@ import db from './firebase';
 import NavBar from "./Navbar";
 
 const Backpack = () => {
-
     //stan plecaka z początkowym stanem Loading zanim pobierze dane z servera:
     const [items, setItems] = useState([{name: "LOADING.....", id: "loader"}]);
     //zaciąganie info z serwera i dodawanie ich do tablicy items
@@ -14,11 +13,10 @@ const Backpack = () => {
             });
         }, []
     )
-
     // zwracam tablicę złożoną z elementów pobranych z firebase jupi :)
     return (
-        <>
-            <NavBar/>
+        <div>
+            <NavBar />
             <div>
                 <div>
                     {items.map(element =>
@@ -29,7 +27,7 @@ const Backpack = () => {
                     }
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

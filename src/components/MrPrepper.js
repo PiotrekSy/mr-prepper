@@ -4,7 +4,8 @@ import Backpack from "./Backpack";
 import AuthPage from "./Auth Page";
 import Instructions from "./Instructions";
 import LandingPage from "./landingPage";
-import LoadingScreen from "./LoadingScreen"
+import LoadingScreen from "./LoadingScreen";
+import MapBox from "./MapBox"
 
 
 const MrPrepper = () => {
@@ -33,6 +34,7 @@ const MrPrepper = () => {
                             <Route path="instructions" element={<Instructions/>}/>
                             <Route path="backpack" element={<Backpack/>}/>
                             <Route path="landingPage" element={<LandingPage/>}/>
+                            <Route path="mapBox" element={<MapBox/>}/>
                         </Routes>
                     </div>
                 </div>

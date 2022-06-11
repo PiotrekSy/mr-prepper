@@ -3,7 +3,6 @@ import {Link} from "react-router-dom";
 import {signOut} from "firebase/auth";
 import {auth} from "./firebase";
 
-
 const LandingPage = () => {
 
     const logout = async (e) => {
@@ -12,21 +11,27 @@ const LandingPage = () => {
     }
 
     return (
-        <>
-            <h2 >Mr.Prepper</h2>
-            <ul>
-                <li className="linkButton">
-                    <Link to='/Instructions'>Instructions</Link>
-                </li>
-                <li className="linkButton">
-                    <Link to='/backpack'>Backpack</Link>
-                </li >
-            </ul>
-            <div className="linkButton">
-                <Link to ="/" onTouchStart={logout}>quit</Link>
-            </div>
+        <div className="landingPage">
+            <h1 className="title">Mr.Prepper</h1>
+            <div className="menuOptions">
+                <Link to='/Instructions'>
+                    <button type="button" className="landingButton" style={{marginTop: "5vh"}}>Instructions</button>
+                </Link>
+                <Link to='/backpack'>
+                    <button type="button" className="landingButton" style={{marginTop: "5vh"}}>Backpack</button>
+                </Link>
+                <Link to='/mapbox'>
+                    <button type="button" className="landingButton" style={{marginTop: "5vh"}}>Map</button>
+                </Link>
 
-        </>
+                <Link to="/" onClick={logout}>
+                    <button type="button" className="landingButton"
+                            style={{marginTop: "10vh"}}>Log out!
+                    </button>
+                </Link>
+
+            </div>
+        </div>
     )
 }
 
