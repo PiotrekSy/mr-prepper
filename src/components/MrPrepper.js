@@ -27,7 +27,7 @@ const MrPrepper = () => {
     if (!isLoading) {
         return (
             <Router>
-                <div className="wholeApp">
+                <div>
                     <div>
                         <Routes>
                             <Route path="/" element={<AuthPage/>}/>
