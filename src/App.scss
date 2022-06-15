@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Freckle+Face&display=swap');
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 * {
   background: none no-repeat 0 0 transparent;
   font-weight: normal;
@@ -360,10 +364,6 @@
   }
 }
 
-::-webkit-scrollbar {
-  display: none;
-}
-
 .backpack {
   z-index: 0;
   position: relative;
@@ -448,6 +448,56 @@
   }
 }
 
+.mapBox {
+  width: 100vw;
+  height: 80vh;
+  background: #d7c9c9;
+  z-index: 0;
+
+
+  .mapNavBar {
+    z-index: 4;
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    justify-content: space-evenly;
+    bottom: 0;
+    width: 100%;
+    align-items: center;
+    height: 15vh;
+    border-top: 6px solid #2e2e31;
+    max-height: 10vh;
+    font-family: 'Freckle Face', cursive;
+    box-shadow: inset 0 -25px #c78a2f;
+    color: #2e2e31;
+    background-color: #f9ad3b;
+    font-size: 4vh;
+    max-font-size: 8vh;
+
+    .mapNavButtonBack {
+      border: none;
+      position: relative;
+      height: 100%;
+      width: 20vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .mapNavButton {
+        height: 100%;
+        max-height: 10vh;
+        width: 20vw;
+        color: #2e2e31;
+        position: relative;
+        margin: -3px;
+        align-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}
 
 
 
