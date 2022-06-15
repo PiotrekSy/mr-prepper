@@ -27,21 +27,17 @@ const MrPrepper = () => {
     if (!isLoading) {
         return (
             <Router>
-                <div>
-                    <div>
-                        <Routes>
-                            <Route path="/" element={<AuthPage/>}/>
-                            <Route path="instructions" element={<Instructions/>}/>
-                            <Route path="backpack" element={<Backpack/>}/>
-                            <Route path="landingPage" element={<LandingPage/>}/>
-                            <Route path="mapBox" element={<MapBox/>}/>
-                        </Routes>
-                    </div>
-                </div>
+                <Routes>
+                    <Route path="/" element={<AuthPage/>}/>
+                    <Route path="instructions" element={<Instructions/>}/>
+                    <Route path="backpack" element={<Backpack/>}/>
+                    <Route path="landingPage" element={<LandingPage/>}/>
+                    <Route path="mapBox" element={<MapBox/>}/>
+                </Routes>
             </Router>
         )
     } else {
-        return <LoadingScreen counter={counter} />
+        return <LoadingScreen counter={counter}/>
     }
 
 }

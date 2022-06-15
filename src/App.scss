@@ -9,7 +9,7 @@
   text-align: center;
   text-decoration: none;
   text-indent: 0;
-  font-size: 4vh;
+  font-size: 3.5vh;
 }
 
 .wholeApp {
@@ -22,7 +22,7 @@
   justify-content: center;
   align-items: center;
   background: radial-gradient(ellipse at bottom, #4f6575 0%, #1f3942 100%);
-  //overflow: hidden;
+  overflow: auto;
 }
 
 .logo {
@@ -360,24 +360,92 @@
   }
 }
 
+::-webkit-scrollbar {
+  display: none;
+}
+
 .backpack {
   z-index: 0;
   position: relative;
-  top: 20vh;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-scrolling: touch;
   background: radial-gradient(ellipse at bottom, #4f6575 0%, #1f3942 100%);
-  .done {
-    text-decoration: line-through;
-  }
-  .notDone {
 
-  }
-  .hidden {
-    display: none;
-  }
-  .shown {
-    background: #c78a2f;
+  p {
+    font-size: clamp(10px, 7vw, 30px);
   }
 
+  .list {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 12vh;
+    align-self: center;
+    width: 90vw;
+    padding-bottom: 4vh;
+
+    .wholeBpkElement {
+      align-self: center;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      max-height: 40px;
+      max-width: 600px;
+      align-items: center;
+      height: 8vh;
+      font-family: 'Freckle Face', cursive;
+      box-shadow: inset 0 -15px #c78a2f;
+      color: #2e2e31;
+      position: relative;
+      background-color: #f9ad3b;
+      width: 85vw;
+      border-radius: 50px;
+      margin-top: 2vh;
+      max-font-size: 8vw;
+      border: 6px solid #2e2e31;
+
+      .elementContent {
+        position: relative;
+        align-items: center;
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+        width: 85%;
+        left: 5%;
+      }
+
+      .iconDescription {
+        border: none;
+        display: flex;
+        position: relative;
+        justify-content: flex-end;
+        align-items: center;
+        background: url('./images/info_FILL0_wght400_GRAD0_opsz48.png') center no-repeat;
+        background-size: 85%;
+        height: 5vh;
+        width: 5vh;
+        max-height: 8vh;
+        max-width: 8vw;
+      }
+
+      .infoButton {
+        border: none;
+        align-items: center;
+        height: 100%;
+        width: 5vw
+      }
+    }
+
+    .hidden {
+      display: none;
+    }
+  }
 }
 
 
