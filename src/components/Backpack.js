@@ -14,18 +14,29 @@ const Backpack = () => {
         }, []
     )
     // zwracam tablicę złożoną z elementów pobranych z firebase jupi :)
+
+    //obsługa pokazywania elementu opisu jako pokazany, nie pokazany:
+    const [info, setInfo] = useState("hidden")
+    const [done, setDone] = useState(false)
+
+    const showInfo = () => {
+
+        info === "hidden" ? setInfo("shown") : setInfo("hidden")
+    }
+
+
     return (
-        <div>
-            <NavBar />
-            <div>
-                <div>
-                    {items.map(element =>
-                        <li key={element.id}>
-                            <br/>{element.name}
-                            <p>{element.description}</p>
-                        </li>)
-                    }
-                </div>
+        <div className="backpack">
+            <NavBar/>
+            <div className="list">
+                {items.map(element =>
+                    <li key={element.id} className={done ? "done" : "notDone"}
+                        onClick={() => done ? setDone(false) : setDone(true)}>
+                        {element.name}
+                        <button onClick={showInfo}>inform</button>
+                        <p className={info}>{element.description}</p>
+                    </li>)
+                }
             </div>
         </div>
     )

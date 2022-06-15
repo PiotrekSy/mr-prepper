@@ -110,23 +110,24 @@ const AuthPage = () => {
                                     className="menuButton">SignUp!
                             </button>
                         </div>
+
                         <div className="buttonBack">
                             <button type="button"
                                     className="menuButton"
                                     onClick={logoutFromReg}> Back
                             </button>
                         </div>
-
+                        {error && <p>{error}</p>}
                         {error === "Zarejestrowano!" && <>
                         <span
                             className="description">Witaj, {user.email}!</span>
                             <div className = "menuButton">
                                 <Link
-                                    to="landingPage">Przejdź do Apki!
+                                    to="landingPage">Przejdź do Aplikacji!
                                 </Link>
                             </div>
                         </>}
-                        {error && <p>{error}</p>}
+
                     </form>
                 }
 
@@ -163,7 +164,7 @@ const AuthPage = () => {
                             {error && <p>{error}</p>}
                             <span className="description">Witaj, {user.email}!</span>
                             <Link
-                                to="landingPage"><button className="menuButton">Przejdź do Apki!</button>
+                                to="landingPage"><button className="menuButton">Przejdź do Aplikacji!</button>
                             </Link>
                         </>}
                     </form>}

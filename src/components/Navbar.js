@@ -9,20 +9,33 @@ const NavBar = () => {
         e.preventDefault()
         await signOut(auth)
     }
- //TODO STYLOWANIE BUTTONÓW I ROBIENIE NAVBARA
+
     return (
-        <div className = "navBar">
-            <div>
-                <Link to='/landingPage' className="navButton"> </Link>
+        <div className="navBar">
+            <div className="navButton">
+                <Link to='/landingPage' className="navButtonBack">
+                    <div className='iconBack'/>
+                </Link>
             </div>
-            <div>
-                <Link to='/Instructions' className="navButton">Instructions</Link>
+            <div className="navButton">
+                <Link to='/Instructions' className="navButtonBack">
+                    <div className='iconInstructions'/>
+                </Link>
             </div>
-            <div>
-                <Link to='/backpack' className="navButton">Backpack</Link>
+            <div className="navButton">
+                <Link to='/backpack' className="navButtonBack">
+                    <div className='iconBackpack'/>
+                </Link>
             </div>
-            <div>
-                <Link to="/" onClick={logout} className="navButton">Quit</Link>
+            <div className="navButton">
+                <Link to='/mapbox' className="navButtonBack">
+                    <div className='iconMap'/>
+                </Link>
+            </div>
+            <div className="navButton">
+                <Link to="/" onClick={logout} className="navButtonBack">
+                    <div className='iconLogout'/>
+                </Link>
             </div>
         </div>
     )

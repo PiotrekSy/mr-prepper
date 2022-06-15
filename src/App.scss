@@ -22,7 +22,7 @@
   justify-content: center;
   align-items: center;
   background: radial-gradient(ellipse at bottom, #4f6575 0%, #1f3942 100%);
-  overflow: hidden;
+  //overflow: hidden;
 }
 
 .logo {
@@ -212,8 +212,113 @@
   }
 }
 
-.landingPage {
+.navBar {
+  z-index: 5;
+  display: flex;
+  flex-direction: row;
+  position: fixed;
+  justify-content: space-evenly;
+  top: 0;
+  left: 0;
+  width: 100%;
+  align-items: center;
+  height: 15vh;
+  border-bottom: 6px solid #2e2e31;
+  max-height: 10vh;
+  font-family: 'Freckle Face', cursive;
+  box-shadow: inset 0 -25px #c78a2f;
+  color: #2e2e31;
+  background-color: #f9ad3b;
+  align-self: center;
+  font-size: 4vh;
+  max-font-size: 8vh;
 
+  .navButton {
+    height: 8vh;
+    max-height: 10vh;
+    width: 20vw;
+    color: #2e2e31;
+    position: relative;
+    margin: -3px;
+    align-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .navButtonBack {
+      position: relative;
+      height: 8vh;
+      width: 20vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .iconBack {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url('./images/arrow_back_FILL0_wght400_GRAD0_opsz48.png') center no-repeat;
+        background-size: 70%;
+        height: 8vh;
+        width: 8vh;
+        max-height: 8vh;
+        max-width: 20vw;
+      }
+
+      .iconBackpack {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url('./images/backpack_FILL0_wght400_GRAD0_opsz48.png') center no-repeat;
+        background-size: 70%;
+        height: 8vh;
+        width: 8vh;
+        max-height: 8vh;
+        max-width: 20vw;
+      }
+
+      .iconMap {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url('./images/pin_drop_FILL0_wght400_GRAD0_opsz48.png') center no-repeat;
+        background-size: 70%;
+        height: 8vh;
+        width: 8vh;
+        max-height: 8vh;
+        max-width: 20vw;
+      }
+
+      .iconInstructions {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url('./images/info_FILL0_wght400_GRAD0_opsz48.png') center no-repeat;
+        background-size: 70%;
+        height: 8vh;
+        width: 8vh;
+        max-height: 8vh;
+        max-width: 20vw;
+      }
+
+      .iconLogout {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url('./images/power_settings_new_FILL0_wght400_GRAD0_opsz48.png') center no-repeat;
+        background-size: 70%;
+        height: 8vh;
+        width: 8vh;
+        max-height: 8vh;
+        max-width: 20vw;
+      }
+    }
+
+  }
+
+}
+
+.landingPage {
   height: 90vh;
   display: flex;
   flex-direction: column;
@@ -239,7 +344,6 @@
       justify-content: center;
       align-items: center;
       height: 8vh;
-      cursor: pointer;
       font-family: 'Freckle Face', cursive;
       box-shadow: inset 0 -15px #c78a2f;
       color: #2e2e31;
@@ -253,34 +357,29 @@
       max-font-size: 8vh;
       border: 6px solid #2e2e31;
     }
+  }
+}
 
+.backpack {
+  z-index: 0;
+  position: relative;
+  top: 20vh;
+  background: radial-gradient(ellipse at bottom, #4f6575 0%, #1f3942 100%);
+  .done {
+    text-decoration: line-through;
+  }
+  .notDone {
 
   }
-
+  .hidden {
+    display: none;
+  }
+  .shown {
+    background: #c78a2f;
+  }
 
 }
 
-.navBar {
-position: fixed;
 
-
-  .navButton {
-    background-color: DodgerBlue; /* Blue background */
-    border: none; /* Remove borders */
-    color: white; /* White text */
-    padding: 12px 16px; /* Some padding */
-    font-size: 16px; /* Set a font size */
-    cursor: pointer; /* Mouse pointer on hover */
-    /* Darker background on mouse-over */
-
-    .navButton:hover {
-      background-color: RoyalBlue;
-    }
-
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-  }
-}
 
 

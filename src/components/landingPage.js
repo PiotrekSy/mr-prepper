@@ -14,13 +14,13 @@ const LandingPage = () => {
         <div className="landingPage">
             <h1 className="title">Mr.Prepper</h1>
             <div className="menuOptions">
-                <Link to='/Instructions'>
+                <Link to='/Instructions' className = "landingPageLink">
                     <button type="button" className="landingButton" style={{marginTop: "5vh"}}>Instructions</button>
                 </Link>
-                <Link to='/backpack'>
+                <Link to='/backpack' className = "landingPageLink">
                     <button type="button" className="landingButton" style={{marginTop: "5vh"}}>Backpack</button>
                 </Link>
-                <Link to='/mapbox'>
+                <Link to='/mapbox' className = "landingPageLink">
                     <button type="button" className="landingButton" style={{marginTop: "5vh"}}>Map</button>
                 </Link>
 
