@@ -177,11 +177,10 @@
       border-radius: 50px;
       margin: 0;
       align-self: center;
-      font-size: 4vh;
+      font-size: 6vw;
       max-font-size: 8vh;
       border: 6px solid #2e2e31;
     }
-
 
     .mainMenu {
       display: flex;
@@ -451,9 +450,7 @@
 .mapBox {
   width: 100vw;
   height: 80vh;
-  background: #d7c9c9;
   z-index: 0;
-
 
   .mapNavBar {
     z-index: 4;

@@ -33,7 +33,7 @@ const NavBar = () => {
                 </Link>
             </div>
             <div className="navButton">
-                <Link to="/" onClick={logout} className="navButtonBack">
+                <Link to="/" onClick={() => logout} className="navButtonBack">
                     <div className='iconLogout'/>
                 </Link>
             </div>

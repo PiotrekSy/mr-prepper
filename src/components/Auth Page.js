@@ -35,6 +35,8 @@ const AuthPage = () => {
             await signInWithEmailAndPassword(auth, email, password)
             onAuthStateChanged(auth, (currentUser) => setUser(currentUser))
             setError("Zalogowano!")
+            setEmail("")
+            setPassword("")
         } catch {
             setError("Failed to log in!")
         }
