@@ -1,12 +1,13 @@
 import React from "react";
 import NavBar from "./Navbar";
+import InstructionElement from "./InstructionElement"
 
 const Instructions = () => {
     return (
-        <>
+        <div className="instructions">
             <NavBar/>
-            <h1> INSTRUKCJE </h1>
-        </>
+            <InstructionElement/>
+        </div>
     )
 }
 export default Instructions

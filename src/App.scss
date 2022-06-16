@@ -177,7 +177,7 @@
       border-radius: 50px;
       margin: 0;
       align-self: center;
-      font-size: 6vw;
+      font-size: clamp(10px, 6vw, 30px);
       max-font-size: 8vh;
       border: 6px solid #2e2e31;
     }
@@ -363,8 +363,8 @@
   }
 }
 
-.backpack {
-  z-index: 0;
+.backpack, .instructions {
+  z-index: 1;
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -394,7 +394,6 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-      max-height: 40px;
       max-width: 600px;
       align-items: center;
       height: 8vh;
@@ -410,6 +409,7 @@
       border: 6px solid #2e2e31;
 
       .elementContent {
+        align-self: center;
         position: relative;
         align-items: center;
         justify-content: space-between;
@@ -439,12 +439,19 @@
         height: 100%;
         width: 5vw
       }
-    }
+      .hidden {
+        display: none;
 
-    .hidden {
-      display: none;
+      }
+      .shown {
+        font-size: 6vw;
+        color: #5b5b60;
+        align-self: center;
+        padding: 3vw;
+      }
     }
   }
+
 }
 
 .mapBox {
@@ -482,7 +489,6 @@
       max-height: 8vh;
       max-width: 20vw;
     }
-
 
 
     .mapWholeButton {

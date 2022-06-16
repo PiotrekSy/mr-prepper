@@ -35,8 +35,6 @@ const AuthPage = () => {
             await signInWithEmailAndPassword(auth, email, password)
             onAuthStateChanged(auth, (currentUser) => setUser(currentUser))
             setError("Zalogowano!")
-            setEmail("")
-            setPassword("")
         } catch {
             setError("Failed to log in!")
         }
@@ -82,93 +80,111 @@ const AuthPage = () => {
                 {/*Rejestracja*/}
                 {(registered === "notRegistered" && isUsingForm) &&
                     <form onSubmit={register} className="registrationForm">
-
-                        <div>
-                            <h1 className="pageTitle">Register Now! </h1>
-                        </div>
-                        <div className="registrationInputWrapper">
-                            <label className="description" htmlFor="email"></label>
-                            <input className="inputVisuals" type="email"
-                                   id="email"
-                                   onChange={e => setEmail(e.target.value)}
-                                   aria-describedby="emailHelp" placeholder="Enter email"/>
-                        </div>
-                        <div className="registrationInputWrapper">
-                            <label className="description" htmlFor="password"></label>
-                            <input className="inputVisuals" type="password"
-                                   id="password"
-                                   onChange={e => setPassword(e.target.value)}
-                                   placeholder="Password"/>
-                        </div>
-                        <div className="registrationInputWrapper">
-                            <label className="description" htmlFor="passwordConfirm"></label>
-                            <input className="inputVisuals" type="password"
-                                   id="passwordConfirm"
-                                   onChange={e => setPasswordConfirm(e.target.value)}
-                                   placeholder="Confirm Password"/>
-                        </div>
-                        <div className="buttonBack">
-                            <button type="submit"
-                                    className="menuButton">SignUp!
-                            </button>
-                        </div>
-
-                        <div className="buttonBack">
-                            <button type="button"
-                                    className="menuButton"
-                                    onClick={logoutFromReg}> Back
-                            </button>
-                        </div>
-                        {error && <p>{error}</p>}
-                        {error === "Zarejestrowano!" && <>
-                        <span
-                            className="description">Witaj, {user.email}!</span>
-                            <div className = "menuButton">
-                                <Link
-                                    to="landingPage">Przejdź do Aplikacji!
-                                </Link>
-                            </div>
-                        </>}
-
+                        {error !== "Zarejestrowano!" &&
+                            <>
+                                <div>
+                                    <h1 className="pageTitle">Register Now! </h1>
+                                </div>
+                                <div className="registrationInputWrapper">
+                                    <label className="description" htmlFor="email"></label>
+                                    <input className="inputVisuals" type="email"
+                                           id="email"
+                                           onChange={e => setEmail(e.target.value)}
+                                           aria-describedby="emailHelp" placeholder="Enter email"/>
+                                </div>
+                                <div className="registrationInputWrapper">
+                                    <label className="description" htmlFor="password"></label>
+                                    <input className="inputVisuals" type="password"
+                                           id="password"
+                                           onChange={e => setPassword(e.target.value)}
+                                           placeholder="Password"/>
+                                </div>
+                                <div className="registrationInputWrapper">
+                                    <label className="description" htmlFor="passwordConfirm"></label>
+                                    <input className="inputVisuals" type="password"
+                                           id="passwordConfirm"
+                                           onChange={e => setPasswordConfirm(e.target.value)}
+                                           placeholder="Confirm Password"/>
+                                </div>
+                                <div className="buttonBack">
+                                    <button type="submit"
+                                            className="menuButton">SignUp!
+                                    </button>
+                                </div>
+                                <div className="buttonBack">
+                                    <button type="button"
+                                            className="menuButton"
+                                            onClick={logoutFromReg}> Back
+                                    </button>
+                                </div>
+                            </>}
                     </form>
                 }
+                {error === "Zarejestrowano!" &&
+                    <>
+                        <div style={{
+                            position: "absolute",
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center",
+                            justifyContent: "space-around",
+                            height: "100vh",
+                            alignSelf: "center"
+                        }}>
+                            {error && <p style={{fontSize: "12vw"}}>{error}</p>}
+                            <span className="description"
+                                  style={{fontSize: "clamp(10px, 9vw, 30px"}}>Witaj, {user.email}!</span>
+                            <Link to="landingPage">
+                                <button className="menuButton">Przejdź do Aplikacji!</button>
+                            </Link>
+                        </div>
+                    </>
+                }
+
 
                 {/*Login*/}
                 {(registered === "registered" && isUsingForm) &&
                     <form onSubmit={login} className="registrationForm">
-                        <div>
-                            <h1 className="pageTitle">Log in!</h1>
+                        {error !== "Zalogowano!" &&
+                            <>
+                                <div>
+                                    <h1 className="pageTitle">Log in!</h1>
+                                </div>
+                                <div className="form-group">
+                                    <label className="description" htmlFor="email"/>
+                                    <input className="inputVisuals" type="email"
+                                           id="email"
+                                           onChange={e => setEmail(e.target.value)}
+                                           aria-describedby="emailHelp" placeholder="Enter email"
+                                    />
+                                </div>
+                                <div className="form-group">
+                                    <label className="description" htmlFor="password"/>
+                                    <input className="inputVisuals" type="password"
+                                           id="password"
+                                           onChange={e => setPassword(e.target.value)}
+                                           placeholder="Password"
+                                    />
+                                </div>
+                                <div className="buttonBack">
+                                    <button type="submit" className="menuButton">LogIn!</button>
+                                </div>
+                                <div className="buttonBack">
+                                    <button type="button" onClick={logoutFromReg} className="menuButton"> Back
+                                    </button>
+                                </div>
+                            </>
+                        }
+                        {error === "Zalogowano!" &&
+                            <>
+                                {error && <p style={{fontSize: "15vw"}}>{error}</p>}
+                                <span className="description"
+                                      style={{fontSize: "clamp(10px, 9vw, 30px"}}>Witaj, {user.email}!</span>
+                                <Link to="landingPage">
+                                    <button className="menuButton">Przejdź do Aplikacji!</button>
+                                </Link>
+                            </>}
 
-                        </div>
-                        <div className="form-group">
-                            <label className="description" htmlFor="email"/>
-                            <input className="inputVisuals" type="email"
-                                   id="email"
-                                   onChange={e => setEmail(e.target.value)}
-                                   aria-describedby="emailHelp" placeholder="Enter email"
-                            />
-                        </div>
-                        <div className="form-group">
-                            <label className="description" htmlFor="password"/>
-                            <input className="inputVisuals" type="password"
-                                   id="password"
-                                   onChange={e => setPassword(e.target.value)}
-                                   placeholder="Password"
-                            />
-                        </div>
-                        <div className="buttonBack">
-                            <button type="submit" className="menuButton">LogIn!</button>
-                        </div>
-                        <div className="buttonBack">
-                            <button type="button" onClick={logoutFromReg} className="menuButton"> Back</button>
-                        </div>
-                        {error === "Zalogowano!" && <>
-                            {error && <p>{error}</p>}
-                            <span className="description">Witaj, {user.email}!</span>
-                            <Link
-                                to="landingPage"><button className="menuButton">Przejdź do Aplikacji!</button>
-                            </Link>
-                        </>}
                     </form>}
             </div>
         </div>
