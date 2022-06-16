@@ -1,0 +1,75 @@
+{
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Najbliższy sklep wielobranżowy"
+      },
+      "geometry": {
+        "coordinates": [
+          20.049824,
+          50.022623
+        ],
+        "type": "Point"
+      },
+      "id": "6147031970f8456d1521cf373d13525a"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "punkt zborny"
+      },
+      "geometry": {
+        "coordinates": [
+          20.001369,
+          49.974159
+        ],
+        "type": "Point"
+      },
+      "id": "74021d8c3eb6bec931aa31dcad6da57e"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Stacja paliw"
+      },
+      "geometry": {
+        "coordinates": [
+          20.050223,
+          50.037776
+        ],
+        "type": "Point"
+      },
+      "id": "abf595c5eb4787b8b55d813e6a7daa07"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Apteka"
+      },
+      "geometry": {
+        "coordinates": [
+          20.049794,
+          50.02074
+        ],
+        "type": "Point"
+      },
+      "id": "d2dfd59f6fedae8d8ce34fef56e4db92"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Dom"
+      },
+      "geometry": {
+        "coordinates": [
+          20.057184,
+          50.019006
+        ],
+        "type": "Point"
+      },
+      "id": "dafcae513dd059f0bb2cb7d261d2effe"
+    }
+  ],
+  "type": "FeatureCollection"
+}

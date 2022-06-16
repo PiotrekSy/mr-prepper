@@ -35,7 +35,7 @@ const BackpackElement = () => {
                             <p style={{textDecoration: checked ? "line-through" : "none"}}>{element.name}</p>
                             {/*<p className="hidden">{element.description}</p>*/}
                         </div>
-                        <button className="infoButton">
+                        <button type="button" className="infoButton">
                             <div className="iconDescription"/>
                         </button>
                     </div>

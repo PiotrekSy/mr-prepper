@@ -471,6 +471,20 @@
     font-size: 4vh;
     max-font-size: 8vh;
 
+    .iconHome {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: url('./images/home_FILL0_wght400_GRAD0_opsz48.png') center no-repeat;
+      background-size: 70%;
+      height: 8vh;
+      width: 8vh;
+      max-height: 8vh;
+      max-width: 20vw;
+    }
+
+
+
     .mapWholeButton {
       height: 100%;
       width: 100%;
@@ -479,7 +493,7 @@
     .mapNavButtonBack {
       border: none;
       position: relative;
-      height: 15vh;
+      height: 100%;
       width: 20vw;
       display: flex;
       justify-content: center;
