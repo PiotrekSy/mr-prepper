@@ -21,9 +21,12 @@ const AuthPage = () => {
         }
         try {
             setError("")
-            await createUserWithEmailAndPassword(auth, email, password)
+            const user = await createUserWithEmailAndPassword(auth, email, password)
             onAuthStateChanged(auth, (currentUser) => setUser(currentUser))
             setError("Zarejestrowano!")
+            if (user) {
+                //TODO ZAPIS DO BAZY
+            }
         } catch {
             setError("Failed to create an account!")
         }

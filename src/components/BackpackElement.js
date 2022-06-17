@@ -14,37 +14,33 @@ const BackpackElement = () => {
     )
     // zwracam tablicę złożoną z elementów pobranych z firebase jupi :)
 
-
-    //obsługa pokazywania elementu opisu jako pokazany, nie pokazany:
-
-//TODO NIE WIEM JAK ZADZIAŁAĆ ŻEBY PRZEKREŚLENIE ELEMENTU ODNOSIŁO SIĘ DO JEDNEGO ELEMENTU
-
-    const [checked, setChecked] = useState(false)
-    const [elementHeight, setElementHeight] = useState("6vh")
-
-    const check = (e) => {
-        e.preventDefault()
-        checked ? setChecked(false) : setChecked(true)
-    }
     const showDescription = (e) => {
-        e.preventDefault()
-        elementHeight !== "auto" ? setElementHeight("auto") : setElementHeight("6vh")
+        e.preventDefault();
+        if (e.currentTarget.parentElement.firstElementChild.children[1].className === "hidden") {
+            e.currentTarget.parentElement.firstElementChild.children[1].classList.remove("hidden");
+            e.currentTarget.parentElement.firstElementChild.children[1].classList.add("shown");
+            e.currentTarget.parentElement.parentElement.style.height = "auto";
+            e.currentTarget.parentElement.children[0].style.paddingTop = "10px"
+        } else if (e.currentTarget.parentElement.firstElementChild.children[1].className === "shown") {
+            e.currentTarget.parentElement.firstElementChild.children[1].classList.remove("shown");
+            e.currentTarget.parentElement.firstElementChild.children[1].classList.add("hidden");
+            e.currentTarget.parentElement.parentElement.style.height = "8vh";
+            e.currentTarget.parentElement.children[0].style.paddingTop = "0"
+        }
     }
 
     return (
         <div className="list">
             {items.map(element =>
-                <li key={element.id} className="wholeBpkElement listElement" style={{height: elementHeight}}>
+                <li key={element.id} className="wholeBpkElement listElement">
                     <div className="elementContent">
-                        <div onClick={check}>
-                            <p style={{textDecoration: checked ? "line-through" : "none"}}>{element.name}</p>
-                            <p style={{textDecoration: checked ? "line-through" : "none"}}
-                               className={elementHeight !== "auto" ? "hidden" : "shown"}>{element.description}</p>
+                        <div id={element.name}>
+                            <p onClick={(e) =>
+                                e.currentTarget.classList.toggle('linedTrough')}
+                               className="elementTitle">{element.name}</p>
+                            <p className="hidden">{element.description}</p>
                         </div>
-                        {/*<button onClick={check} name={element.name} type="button" className="infoButton">*/}
-                        {/*    <div className="iconDescription"/>*/}
-                        {/*</button>*/}
-                        <button onClick={showDescription} title={element.name} type="button" className="infoButton">
+                        <button onClick={showDescription} type="button" className="infoButton">
                             <div className="iconDescription"/>
                         </button>
                     </div>
@@ -53,5 +49,28 @@ const BackpackElement = () => {
         </div>
     )
 }
+
+// return (
+// <div className="list">
+// {items.map(element =>
+//                 <li key={element.id} className="wholeBpkElement listElement" style={{height: elementHeight}}>
+//                     <div className="elementContent">
+//                         <div onClick={check}>
+//                             <p style={{textDecoration: checked ? "line-through" : "none"}}>{element.name}</p>
+//                             <p style={{textDecoration: checked ? "line-through" : "none"}}
+//                                className={elementHeight !== "auto" ? "hidden" : "shown"}>{element.description}</p>
+//                         </div>
+//                         {/*<button onClick={check} name={element.name} type="button" className="infoButton">*/}
+//                         {/*    <div className="iconDescription"/>*/}
+//                         {/*</button>*/}
+//                         <button onClick={showDescription} title={element.name} type="button" className="infoButton">
+//                             <div className="iconDescription"/>
+//                         </button>
+//                     </div>
+//                 </li>
+//             )}
+//         </div>
+//     )
+// }
 
 export default BackpackElement

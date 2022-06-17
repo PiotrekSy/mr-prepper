@@ -13,23 +13,31 @@ const Instruction = () => {
         }, []
     )
 
-    const [elementHeight, setElementHeight] = useState("6vh")
-
     const showDescription = (e) => {
-        e.preventDefault()
-        elementHeight !== "auto" ? setElementHeight("auto") : setElementHeight("6vh")
+        e.preventDefault();
+        if (e.currentTarget.parentElement.parentElement.style.height !== "auto") {
+            e.currentTarget.parentElement.firstElementChild.children[1].classList.remove("hidden");
+            e.currentTarget.parentElement.firstElementChild.children[1].classList.add("shown");
+            e.currentTarget.parentElement.parentElement.style.height = "auto";
+            e.currentTarget.parentElement.children[0].style.paddingTop = "10px"
+        } else if (e.currentTarget.parentElement.parentElement.style.height === "auto") {
+            e.currentTarget.parentElement.firstElementChild.children[1].classList.remove("shown");
+            e.currentTarget.parentElement.firstElementChild.children[1].classList.add("hidden");
+            e.currentTarget.parentElement.parentElement.style.height = "8vh";
+            e.currentTarget.parentElement.children[0].style.paddingTop = "0"
+        }
     }
 
     return (
         <div className="list">
             {items.map(element =>
-                <li key={element.id} className="wholeBpkElement listElement" style={{height: elementHeight}}>
-                    <div className="elementContent" >
-                        <div >
-                            <p>{element.name}</p>
-                            <p className={elementHeight !== "auto" ? "hidden" : "shown"}> {element.description}</p>
+                <li key={element.id} className="wholeBpkElement listElement">
+                    <div className="elementContent">
+                        <div>
+                            <p className="elementTitle">{element.name}</p>
+                            <p className="hidden"> {element.description}</p>
                         </div>
-                        <button onClick={showDescription} title={element.name} type="button" className="infoButton">
+                        <button onClick={showDescription} type="button" className="infoButton">
                             <div className="iconDescription"/>
                         </button>
                     </div>

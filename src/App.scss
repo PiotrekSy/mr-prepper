@@ -376,6 +376,7 @@
 
   p {
     font-size: clamp(10px, 7vw, 30px);
+    text-align: left;
   }
 
   .list {
@@ -417,6 +418,10 @@
         flex-direction: row;
         width: 85%;
         left: 5%;
+
+        .elementTitle {
+          padding-left: 20px;
+        }
       }
 
       .iconDescription {
@@ -439,19 +444,24 @@
         height: 100%;
         width: 5vw
       }
+
+      .linedTrough {
+        color: #87a351;
+        text-decoration: line-through;
+      }
+
       .hidden {
         display: none;
-
       }
+
       .shown {
-        font-size: 6vw;
-        color: #5b5b60;
+        font-size: 3vh;
+        color: #49494d;
         align-self: center;
         padding: 3vw;
       }
     }
   }
-
 }
 
 .mapBox {
