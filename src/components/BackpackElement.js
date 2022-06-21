@@ -5,7 +5,8 @@ import db from "./firebase";
 const BackpackElement = () => {
     //stan plecaka z początkowym stanem Loading zanim pobierze dane z servera:
     const [items, setItems] = useState([{name: "LOADING.....", id: "loader"}]);
-    //zaciąganie info z serwera i dodawanie ich do tablicy items
+
+    //zaciąganie info z serwera i dodawanie ich do tablicy items przy każdym odświeżeniu
     useEffect(() => {
             onSnapshot(collection(db, "backpack"), (snapshot) => {
                 setItems(snapshot.docs.map(doc => doc.data()));
@@ -29,6 +30,7 @@ const BackpackElement = () => {
         }
     }
 
+
     return (
         <div className="list">
             {items.map(element =>
@@ -50,27 +52,5 @@ const BackpackElement = () => {
     )
 }
 
-// return (
-// <div className="list">
-// {items.map(element =>
-//                 <li key={element.id} className="wholeBpkElement listElement" style={{height: elementHeight}}>
-//                     <div className="elementContent">
-//                         <div onClick={check}>
-//                             <p style={{textDecoration: checked ? "line-through" : "none"}}>{element.name}</p>
-//                             <p style={{textDecoration: checked ? "line-through" : "none"}}
-//                                className={elementHeight !== "auto" ? "hidden" : "shown"}>{element.description}</p>
-//                         </div>
-//                         {/*<button onClick={check} name={element.name} type="button" className="infoButton">*/}
-//                         {/*    <div className="iconDescription"/>*/}
-//                         {/*</button>*/}
-//                         <button onClick={showDescription} title={element.name} type="button" className="infoButton">
-//                             <div className="iconDescription"/>
-//                         </button>
-//                     </div>
-//                 </li>
-//             )}
-//         </div>
-//     )
-// }
 
 export default BackpackElement

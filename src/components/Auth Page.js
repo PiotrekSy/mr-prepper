@@ -1,8 +1,10 @@
 import React, {useState} from "react";
 import {createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut} from "firebase/auth"
-import {auth} from "./firebase"
+import db, {auth} from "./firebase"
 import "firebase/auth"
 import {Link} from "react-router-dom";
+import {useEffect} from "react";
+import {collection, onSnapshot, addDoc} from "@firebase/firestore";
 
 const AuthPage = () => {
 
@@ -14,6 +16,20 @@ const AuthPage = () => {
     const [registered, setRegistered] = useState("");
     const [isUsingForm, setIsUsingForm] = useState(false);
 
+    useEffect(() => {
+            onSnapshot(collection(db, "users"), (snapshot) => {
+                snapshot.docs.map(doc => doc.data());
+            });
+        }, []
+    )
+
+    //funkcja umieszczająca usera w database;
+    const addNewUser = async () => {
+        const userCollection = collection(db, "users");
+        const payload = {email: email, password: password, userType: "normal"}
+        await addDoc(userCollection, payload)
+    }
+
     const register = async (e) => {
         e.preventDefault()
         if (password !== passwordConfirm) {
@@ -21,12 +37,11 @@ const AuthPage = () => {
         }
         try {
             setError("")
-            const user = await createUserWithEmailAndPassword(auth, email, password)
+            await createUserWithEmailAndPassword(auth, email, password)
+            addNewUser()
             onAuthStateChanged(auth, (currentUser) => setUser(currentUser))
             setError("Zarejestrowano!")
-            if (user) {
-                //TODO ZAPIS DO BAZY
-            }
+
         } catch {
             setError("Failed to create an account!")
         }

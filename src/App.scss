@@ -225,7 +225,7 @@
   left: 0;
   width: 100%;
   align-items: center;
-  height: 15vh;
+  height: 10vh;
   border-bottom: 6px solid #2e2e31;
   max-height: 10vh;
   font-family: 'Freckle Face', cursive;
@@ -278,6 +278,7 @@
         width: 8vh;
         max-height: 8vh;
         max-width: 20vw;
+        cursor: pointer;
       }
 
       .iconMap {
@@ -467,7 +468,27 @@
 .mapBox {
   width: 100vw;
   height: 80vh;
-  z-index: 0;
+  z-index: 5;
+
+  .mapContainer {
+    width: 100vw;
+    height: 80vh;
+    z-index: 3;
+  }
+
+  .sidebar {
+    background-color: rgb(45, 69, 81);
+    color: #fff;
+    padding: 6px 12px;
+    font-family: 'Freckle Face', cursive;
+    z-index: 3;
+    position: absolute;
+    top: 11vh;
+    left: 5%;
+    right: 5%;
+    margin: 2vw;
+    border-radius: 50px;
+  }
 
   .mapNavBar {
     z-index: 4;
