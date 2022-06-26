@@ -37,7 +37,8 @@ const MapBox = () => {
         <div className="mapBox">
             <NavBar/>
             <div ref={mapContainer} className="mapContainer"/>
-            <div className="sidebar">Dł: {lng} Szer: {lat}</div>
+            <div className="sidebar">Dł: {lng}, Szer: {lat}</div>
+            {/*nawigacja do mapy:*/}
             <div className="mapBox">
                 <div className="mapNavBar">
                     <div className="wholeButton">

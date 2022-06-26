@@ -159,7 +159,6 @@ const AuthPage = () => {
                     </>
                 }
 
-
                 {/*Login*/}
                 {(registered === "registered" && isUsingForm) &&
                     <form onSubmit={login} className="registrationForm">
